@@ -2,43 +2,43 @@
 <html>
   <head>
     <title>Create New Event</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
   </head>
   <body>
     <div class="container">
-      <h1 class="mt-5 mb-3 text-center">Create New Event</h1>
-      <form action="/events/new" method="POST">
+      <h1>Create New Event</h1>
+      <%= form_for @event, url: events_path, method: :post do |f| %>
         <div class="form-group">
-          <label for="title">Title:</label>
-          <input type="text" class="form-control" id="title" name="event[title]" required>
-        </div>
-        <div class="form-group">
-          <label for="description">Description:</label>
-          <textarea class="form-control" id="description" name="event[description]" required></textarea>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control', required: true %>
         </div>
         <div class="form-group">
-          <label for="start-date">Start Date:</label>
-          <input type="datetime-local" class="form-control" id="start-date" name="event[start_date]" required>
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control', required: true %>
         </div>
         <div class="form-group">
-          <label for="duration">Duration (in minutes):</label>
-          <input type="number" class="form-control" id="duration" name="event[duration]" min="5" step="5" required>
+          <%= f.label :start_date %>
+          <%= f.datetime_local_field :start_date, class: 'form-control', required: true %>
         </div>
         <div class="form-group">
-          <label for="price">Price:</label>
-          <input type="number" class="form-control" id="price" name="event[price]" min="1" max="1000" required>
+          <%= f.label :duration %>
+          <%= f.number_field :duration, class: 'form-control', min: 5, step: 5, required: true %>
         </div>
         <div class="form-group">
-          <label for="location">Location:</label>
-          <input type="text" class="form-control" id="location" name="event[location]" required>
+          <%= f.label :price %>
+          <%= f.number_field :price, class: 'form-control', min: 1, max: 1000, required: true %>
         </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary mt-3">Create Event</button>
+        <div class="form-group">
+          <%= f.label :location %>
+          <%= f.text_field :location, class: 'form-control', required: true %>
         </div>
-      </form>
+        <%= f.submit "Create Event", class: 'btn btn-primary' %>
+      <% end %>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   </body>
 </html>
