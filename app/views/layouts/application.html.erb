@@ -19,36 +19,36 @@
   <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/">Eventbrite</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Events</a>
+        <a class="nav-link" href="/">Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Créer un event</a>
+        <a class="nav-link" href="/events/new">Créer un event</a>
       </li>
       <li class="nav-item dropdown">
       <% if user_signed_in? %>
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/events<%= current_user.id %>" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Mon profil
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Mon profil</a>
-          <a class="dropdown-item" href="#">Se déconnecter</a>
+          <a class="dropdown-item" href="/users/<%= current_user.id %>">Mon profil</a>
+          <a class="dropdown-item" href="/users/sign_out">Se déconnecter</a>
         </div>
         <% else %>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           S'inscrire/Se connecter
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">S'inscrire</a>
-          <a class="dropdown-item" href="#">Se connecter</a>
+          <a class="dropdown-item" href="/users/new">S'inscrire</a>
+          <a class="dropdown-item" href="/users/sign_in">Se connecter</a>
         </div>
-        <% end %>
+      <% end %>
       </li>
     </ul>
   </div>
