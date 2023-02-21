@@ -88,7 +88,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_mailer.default_url_options = { :host => 'https://mailers.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'https://limitless-bayou-19986.herokuapp.com/' }
   config.action_mailer.perform_deliveries = true # false pour suspendre l'envoi d'emails par l'app 
   config.action_mailer.delivery_method = :smtp
 
