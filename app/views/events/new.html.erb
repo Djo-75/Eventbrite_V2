@@ -1,2 +1,44 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create New Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5 mb-3 text-center">Create New Event</h1>
+      <form action="/events/new" method="POST">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title" name="event[title]" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea class="form-control" id="description" name="event[description]" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="start-date">Start Date:</label>
+          <input type="datetime-local" class="form-control" id="start-date" name="event[start_date]" required>
+        </div>
+        <div class="form-group">
+          <label for="duration">Duration (in minutes):</label>
+          <input type="number" class="form-control" id="duration" name="event[duration]" min="5" step="5" required>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" class="form-control" id="price" name="event[price]" min="1" max="1000" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" class="form-control" id="location" name="event[location]" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary mt-3">Create Event</button>
+        </div>
+      </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
