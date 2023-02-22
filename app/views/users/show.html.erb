@@ -20,7 +20,8 @@
               <div class="col-md-4">
                 <h2><%= user_events.title %></h2>
                 <p><%= user_events.description %> </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-secondary" href="/events/<%= user_events.id %>" role="button">Carte de l'event &raquo;</a></p>
+                <%= button_to "Payer l'event", checkout_create_path(total: user_events.price ), class: "btn btn-primary", data: { turbo: false } %>
               </div>
             <% end%>
         </div>
