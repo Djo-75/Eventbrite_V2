@@ -11,8 +11,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new('start_date' => params[:start_date], 'duration' => params[:duration], 'title' => params[:title], 'description' => params[:description], 'price' => params[:price], 'location' => params[:location])
-    if @event.save
+    @event = Event.new(event_params)
+    @event.admin_id = current_user.id
+    if @event.save!
       redirect_to root_path
     else
       render :new
@@ -30,5 +31,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  private 
+
+  def event_params
+    params.require(:event).permit(:title, :description, :start_date, :duration, :price, :location)
   end
 end
