@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       @user_events = Event.where(admin_id: @user.id)
     else
       redirect_to events_path
+      
     end
   end
 end
